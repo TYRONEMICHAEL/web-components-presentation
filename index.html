@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Web Components - A Declarative Renaissance With Polymer</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,700italic,300,400,800' rel='stylesheet' type='text/css'> -->
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+		<link rel="stylesheet" href="css/style.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/highlight.css">
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Web Components</h1>
+					<h4>A Declarative Renaissance With Polymer</h4>
+					<p>
+						<small>Created by <a target="_blank" href="http://hakim.se">TYRONE MICHAEL AVNIT</a> / <a target="_blank" href="http://twitter.com/tyronemichael">@tyronemichael</a> / <a target="_blank" href="http://tyronemichael.com">tyronemichael.com</a> </small>
+					</p>
+				</section>
+
+				<section>
+					<h2>A little bit about me</h2>
+					<ul>
+						<li class="fragment roll-in">
+							<strong>Software</strong> engineer
+						</li>
+						<li class="fragment roll-in">
+							Specialize in <strong>Frontend</strong>
+						</li>
+						<li class="fragment roll-in">
+							Still in love with <strong class="red">Javascript</strong>
+						</li>
+						<li class="fragment roll-in">
+							<strong >Node </strong> = <strong>Bread &amp; Butter</strong>
+						</li>
+						<li class="fragment roll-in">
+							Cannot wait to go back to <strong class="green">IOS</strong>
+						</li>
+						<li class="fragment grow">
+							<strong class="green">Liverpool</strong> supporter
+						</li>
+
+					</ul>
+				</section>
+
+				<section>
+					<h2>Chapter overview</h2>
+					<ol>
+						<li class="fragment roll-in"><strong class="green">What</strong> are Web Components?</li>
+						<li class="fragment roll-in">What problems do they <strong class="green">solve?</strong></li>
+						<li class="fragment roll-in"><strong class="green">Web Components</strong> in detail</li>
+						<li class="fragment roll-in">It's not all <strong class="red">rainbows</strong> and flowers</li>
+						<li class="fragment roll-in">Meetup <strong class="green">example demo</strong></li>
+					</ol>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>What are Web Components?</h2>
+						<blockquote>
+							&ldquo; <strong class="red">Web Components</strong> usher in a new era of web development based on encapsulated and interoperable custom elements that extend HTML itself. &rdquo;
+						</blockquote>
+					</section>
+					<section>
+						<h3>Building Blocks</h3>
+						<ul>
+							<li class="fragment fade-out">Shadow DOM - DOM &amp; <span class="green">style encapsulation</span> boundaries</li>
+							<li class="fragment fade-out">HTML Templates - <span class="green">inert</span> chunks of clonable DOM</li>
+							<li class="fragment fade-out">Custom Elements - create new <span class="green">HTML</span> elements</li>
+							<li class="fragment fade-out"><span class="red">HTML Imports</span></li>
+						</ul>
+					</section>
+					<section>
+						<h3>Who supports Web Components</h3>
+						<img src="images/support-before.png" alt=""></li>
+					</section>
+					<section>
+						<h3>Polymer to the rescue</h3>
+						<img src="images/support-after.png" alt=""></li>
+					</section>
+					<section>
+						<h3>But... who uses this tech now?</h3>
+					</section>
+					<section data-transition="linear" data-background-transition="slide">
+						<img src="images/github.png" alt=""></li>
+					</section>
+					<section data-transition="linear" data-background-transition="slide">
+						<img src="images/chrome-media.png" alt=""></li>
+					</section>
+					<section data-transition="linear" data-background-transition="slide">
+						<img src="images/chrome-os.png" alt=""></li>
+					</section>
+					<section data-transition="linear" data-background-transition="slide">
+						<img src="images/topeka.png" alt=""></li>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>What problems do Web Components solve?</h2>
+						<blockquote>
+							&ldquo; Before we go forward let's go back  &rdquo;
+						</blockquote>
+					</section>
+					<section>
+						<h3>HTML has not kept up!</h3>
+						<img src="images/gmail.png" alt=""></li>
+					</section>
+					<section>
+						<h3>Implementing a feature</h3>
+						<ul>
+							<li class="fragment fade-out">No common <span class="red">pattern / structure</span></li>
+							<li class="fragment fade-out">API's are all <span class="red">different</span></li>
+							<li class="fragment fade-out">Overloading <span class="green">HTML</span></li>
+							<li class="fragment fade-out">Hard to use within <span class="green">teams</span></li>
+							<li class="fragment fade-out">Not <span class="red">quick</span> by any means</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Bootstrap Tab - HTML</h3>
+						<pre>
+							<code style="word-wrap: break-word;" data-trim >
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+  <li><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
+  <li><a href="#messages" role="tab" data-toggle="tab">Messages</a></li>
+  <li><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="home">...</div>
+  <div class="tab-pane" id="profile">...</div>
+  <div class="tab-pane" id="messages">...</div>
+  <div class="tab-pane" id="settings">...</div>
+</div>
+
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Bootstrap Tab - CSS</h3>
+						<pre>
+							<code style="word-wrap: break-word;" data-trim >
+
+.nav {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.nav > li {
+  position: relative;
+  display: block;
+}
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: #eeeeee;
+}
+.nav > li.disabled > a {
+  color: #777777;
+}
+.nav > li.disabled > a:hover,
+.nav > li.disabled > a:focus {
+  color: #777777;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: not-allowed;
+}
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  background-color: #eeeeee;
+  border-color: #428bca;
+}
+.nav .nav-divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.nav > li > a > img {
+  max-width: none;
+}
+.nav-tabs {
+  border-bottom: 1px solid #dddddd;
+}
+.nav-tabs > li {
+  float: left;
+  margin-bottom: -1px;
+}
+.nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+.nav-tabs > li > a:hover {
+  border-color: #eeeeee #eeeeee #dddddd;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555555;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+.nav-tabs.nav-justified {
+  width: 100%;
+  border-bottom: 0;
+}
+.nav-tabs.nav-justified > li {
+  float: none;
+}
+.nav-tabs.nav-justified > li > a {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.nav-tabs.nav-justified > .dropdown .dropdown-menu {
+  top: auto;
+  left: auto;
+}
+@media (min-width: 768px) {
+  .nav-tabs.nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+  .nav-tabs.nav-justified > li > a {
+    margin-bottom: 0;
+  }
+}
+.nav-tabs.nav-justified > li > a {
+  margin-right: 0;
+  border-radius: 4px;
+}
+.nav-tabs.nav-justified > .active > a,
+.nav-tabs.nav-justified > .active > a:hover,
+.nav-tabs.nav-justified > .active > a:focus {
+  border: 1px solid #dddddd;
+}
+
+
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Bootstrap - Javascript</h3>
+						<pre>
+							<code style="word-wrap: break-word;" data-trim >
+
+$('#myTab a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+});
+
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>How do we solve this nonsense?</h3>
+						<ul>
+							<li class="fragment fade-in"><span class="red">Declarative</span> - we only care about high-level</li>
+							<li class="fragment fade-in"><span class="green">Meaningful</span> HTML</li>
+							<li class="fragment fade-in">Common way to  <span class="red">extend </span> => readable</li>
+						</ul>
+					</section>
+					<section>
+						<h3>What exactly do you mean Tyrone?</h3>
+						<pre>
+							<code style="word-wrap: break-word;" data-trim >
+
+<paper-tabs selected="1">
+  <paper-tab>Tab 1</paper-tab>
+  <paper-tab>Tab 2</paper-tab>
+  <paper-tab>Tab 3</paper-tab>
+</paper-tabs>
+							</code>
+						</pre>
+
+						<pre>
+							<code style="word-wrap: break-word;" data-trim >
+
+var tabs = document.querySelector('paper-tabs');
+tabs.addEventListener('core-activate', function() {
+  console.log(this.selected);
+});
+							</code>
+						</pre>
+						<p>Check out the <a target="_blank" href="http://www.polymer-project.org/components/paper-elements/demo.html#paper-tabs">Magic</a></p>
+					</section>
+					
+				</section>
+				
+				<section>
+					<section>
+						<h2>Web Components in detail</h2>
+						<blockquote>
+							&ldquo;Life is really <strong class="green">simple</strong>, but we insist on making it <strong class="red">complicated.</strong>&rdquo;
+						</blockquote>
+					</section>
+
+					<section>
+						<h3>HTML templates - <i>Before</i></h3>
+						<ul>
+							<li class="fragment fade-in"><span class="red">Hacky</span> with so many choices</li>
+							<li class="fragment fade-in"><span class="green">Pushing</span> around strings</li>
+							<li class="fragment fade-in"><span class="red">XSS </span> vulnerable</li>
+						</ul>
+						<pre>
+							<code style="word-wrap: break-word;" data-trim >
+
+<script type="text/x-handlebars-template">
+  <div class="entry">
+    <h1>{{title}}</h1>
+    <div>{{body}}</div>
+  </div>
+</script>
+							</code>
+						</pre>
+						<pre>
+							<code style="word-wrap: break-word;" data-trim >
+
+var MyView = Backbone.View.extend({
+  el: 'div',
+  className: 'entry',
+  template: '<div>...</div>',
+  render: function() { ... }
+});
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h3>HTML templates - <i>Web Components</i></h3>
+						<ul>
+							<li class="fragment fade-in"><span class="red">Use DOM</span> to scaffold DOM → no XSS</li>
+							<li class="fragment fade-in"><span class="green">Parsed</span> not rendered</li>
+							<li class="fragment fade-in"><span class="red">Content is inert </span> until cloned/used</li>
+							<li class="fragment fade-in"><span class="green">Doc fragment</span> not part of the page </li>
+							<li class="fragment fade-in"><span class="red">Native</span> client-side templates</li> 
+						</ul>
+						<pre>
+							<code style="word-wrap: break-word;" data-trim >
+
+<template>
+  <div class="comment">
+    <img src="image.png">
+  </div>
+  <script>...</script>
+</template>
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h3>The Shadow DOM</h3>
+						<blockquote>
+							&ldquo;<span class="green">Shadow DOM</span> refers to the ability of the browser to include a <span class="red">subtree</span> of DOM elements into the rendering of a document, but not into the <span class="red">main document</span> DOM tree.&rdquo;
+						</blockquote>
+					</section>
+
+					<section>
+						<h3>HTML imports - <i>Before</i></h3>
+						<p>HTML Imports are a way to include and reuse HTML documents in other HTML documents</p>
+						<h5><i>Before</i></h5>
+						<pre>
+							<code style="word-wrap: break-word;" data-trim >
+
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="fonts.css">
+<script src="jquery.js"></script>
+<script src="bootstrap.js"></script>
+<script src="bootstrap-tooltip.js"></script>
+<script src="bootstrap-dropdown.js"></script>
+
+							</code>
+						</pre>
+						<h5><i>After</i></h5>
+						<pre>
+							<code style="word-wrap: break-word;" data-trim >
+
+<link rel="import" href="bootstrap.html">
+
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h3>Find, Import, &amp; Use</h3>
+						<ul>
+							<li class="fragment fade-out"><span class="red">Bundle</span> JS/HTML/CSS → single URL</li>
+							<li class="fragment fade-out">Basic <span class="green">dependency management</span></li>
+							<li class="fragment fade-out">Inside <span class="green">script</span>  doesn't block main page</li>
+							<li class="fragment fade-out">Supports <span class="red">async</span> attribute</li>
+						</ul>
+						<pre>
+							<code style="word-wrap: break-word;" data-trim>
+<!-- 1. import -->
+<link rel="import" href="profile-card.html">
+
+<!-- 2. use -->
+<profile-card></profile-card>
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h3>Google Maps - <i>Before</i></h3>
+						<small>Render a map. Add marker at user's current location.</small>
+						<pre>
+							<code style="word-wrap: break-word;" data-trim>
+<style>
+  #map {
+    height: 400px;
+  }
+</style>
+
+<div id="map"></div>
+
+<script src="http://maps.googleapis.com/maps/api/js?callback=mapReady"></script>
+
+<script>
+  var marker = null;
+
+  function getCurrentLocation(callback) {
+    navigator.geolocation.watchPosition(callback);
+  }
+
+  function addMarker(opts, info) {
+    var marker = new google.maps.Marker(opts);
+
+    var infoWindow = new google.maps.InfoWindow({content: info});
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infoWindow.open(opts.map, marker);
+    });
+
+    return marker;
+  }
+
+  function mapReady() {
+    var container = document.querySelector('#map');
+    var map = new google.maps.Map(container, {
+      zoom: 14, disableDefaultUI: true
+    });
+
+    getCurrentLocation(function(pos) {
+      var current = new google.maps.LatLng(pos.coords.latitude, 
+                                           pos.coords.longitude);
+      map.setCenter(current);
+
+      // Re-position marker or create new one.
+      if (marker) {
+        marker.setPosition(map.getCenter());
+      } else {
+        marker = addMarker({
+          position: current, map: map, title: 'Your location'
+        }, '<b>Your location</b>');
+      }
+    });
+  }
+</script>
+
+
+
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h3>Google Maps - <i>Web Components</i></h3>
+						<small>Render a map. Add marker at a specific location.</small>
+						
+						<pre>
+							<code style="word-wrap: break-word;" data-trim>
+
+<geo-location latitude="{{lat}}" longitude="{{lng}}"></geo-location>
+<google-map latitude="{{lat}}" longitude="{{lng}}" zoom="{{zoom}}">
+  <google-map-marker latitude="{{lat}}" longitude="{{lng}}"></google-map-marker>
+</google-map>
+<paper-slider min="0" max="21" value="{{zoom}}" pin></paper-slider>
+
+
+							</code>
+						</pre>
+						
+
+						<p>Check out <a target="_blank" href="http://polymer-change.appspot.com/#61">this</a> then view the <a target="_blank" href="http://polymer-change.appspot.com/#62">demo</a></p>
+					</section>
+
+					<section>
+						<h3>But I like to code!</h3>
+						<ul>
+							<li class="fragment fade-in"><strong class="red">PRODUCTIVITY</strong> - rapid development, high productivity</li>
+							<li class="fragment fade-in"><strong class="green">DECLARATIVE</strong> - meaningful, intuitive, powerful markup</li>
+							<li class="fragment fade-in"><strong class="red">COMPOSIBILITY</strong> - apps from building blocks</li>
+							<li class="fragment fade-in"><strong class="green">MAINTAINABILITY</strong> - read an app, understand it</li>
+							<li class="fragment fade-in"><strong class="red">REUSABILITY</strong> - sharable: don't start from scratch </li>
+							<li class="fragment fade-in"><strong class="green">EXTENSIBILITY</strong> - common way to extend  elements</li>
+							<li class="fragment fade-in"><strong class="red">SCOPING</strong> - per-element CSS / DOM / APIs</li>
+						</ul>
+					</section>
+				
+					
+				</section>
+
+				<section>
+					<section>
+						<h2>It's not all Rainbows and Butterflies</h2>
+						<blockquote>
+							&ldquo; Approach tasks with <strong class="green"> full humility</strong>, and avoid clever tricks like the plague. &rdquo;
+						</blockquote>
+					</section>
+
+					<section>
+						<h3>Gosh darn! I was just getting excited.</h3>
+						<ul>
+							<li class="fragment fade-in"><strong class="red">Browser support</strong> - the story of our lives</li>
+							<li class="fragment fade-in"><strong class="green">All polyfills aren’t created equal</strong> - absurdly difficult</li>
+							<li class="fragment fade-in"><strong class="red">Current Size</strong> - bigger than jQuery</li>
+							<li class="fragment fade-in"><strong class="green">Performance</strong> - especially on mobile</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>So then what is the point?</h3>
+					</section>
+
+					<section>
+						<h2>To not get left behind!</h2>
+					</section>
+
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Wahoo! Demo time.</h2>
+					</section>
+					<section>
+						<h3>Welcome to meetup-comment</h3>
+
+						<small>I created a meetup-comment component for our very own group - <a target="_blank" href="http://localhost:8000">demo</a></small>
+					</section>
+
+					<pre>
+							<code style="word-wrap: break-word;" data-trim>
+
+<!-- Import our custom Web Component. -->
+<link rel="import" href="component_meetup-comments.html">
+
+<!-- Our actual component. -->
+<meetup-comments key="Your-Key" groupId="4162452"></meetup-comments>
+
+
+							</code>
+					</pre>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				parallaxBackgroundImage: 'http://wallpapers.wallbase.cc/rozne/wallpaper-2020049.png',
+				parallaxBackgroundSize: '1920px 1080px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
